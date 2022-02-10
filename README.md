@@ -10,11 +10,9 @@ A chart file for game Schiphalst.
 
 此内文件结构如下：
 ```
-- TestChart.sch
-  |- chart.json - 谱面文件
-  |- image.png  - 封面
-  |- album.png  - 背景（可选）
-  |- music.mp3  - 音乐文件
+- TestChart
+  |- 难度名.json - 谱面文件
+  |- music.ogg  - 音源
 ```
 
 ## Chart
@@ -22,12 +20,7 @@ A chart file for game Schiphalst.
 存储Note及歌曲信息的文件为 `chart.json`，格式如下：
 ```
 {
-	"chartID": "001",
-	"chartName": "Test Chart",
-	"authorName": "Function_X_Y",
-	"charterName": "Function_X_Y",
-	"chartLevel": 114514,
-	"chartDifficulty": "Schiphalast",
+	"version": 1.5,
 	"BPMP1": [
 		260, 520
 	],
@@ -64,7 +57,24 @@ A chart file for game Schiphalst.
 	"notesP2": [{
 		"type": "h",
 		"time": "930",
-		"endT": "1860",
+		"Len": "1860",
+		"BPM": "0",
+		"yPos": "0"
+	}，
+	{
+		"type": "p", // task标记
+		"time": "930",
+		"eType": "h", // 被标记对象
+		"wTime": "1000" // task本体和被标记间间隔
+		"Len": "1860",
+		"BPM": "0",
+		"yPos": "0"
+	}，
+	{
+		"type": "l", //link
+		"time": "114514",
+		"endY": "1860", // 对面的目标Y
+		"eTime": "2000", // 结束时间
 		"BPM": "0",
 		"yPos": "0"
 	}]
