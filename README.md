@@ -80,3 +80,7 @@ A chart file for game Schiphalst.
 	}]
 }
 ```
+
+## 播放
+
+流速： BPM/60 （units/sec）
