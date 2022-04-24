@@ -81,6 +81,12 @@ A chart file for game Schiphalst.
 }
 ```
 
+新增Note属性 Perform 和 Effects
+
+带Perform的Note打击时会有特效
+
+Effects则会有不一样的出现动画
+
 ## 播放
 
 流速： BPM/60 （units/sec）
