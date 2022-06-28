@@ -2,7 +2,7 @@
 
 用于 Schiphalast 的谱面格式
 
-A chart file for game Schiphalst.
+A chart file for game Schiphalast.
 
 ## Introduction
 
