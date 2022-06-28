@@ -1,4 +1,4 @@
-# Schiphalast-Chart-File
+# Schiphalast-Chart-File 2.0
 
 用于 Schiphalast 的谱面格式
 
@@ -6,87 +6,78 @@ A chart file for game Schiphalst.
 
 ## Introduction
 
-谱面后缀为 `.sch`, 本质为 `zip` 文件格式。
+每一首**曲目**一般有四个**谱面**，按文件夹分类
 
-此内文件结构如下：
+文件夹结构如下：
 ```
 - TestChart
-  |- 难度名.json - 谱面文件
+  |- 难度名.sc - 谱面文件
   |- music.ogg  - 音源
+  |- sb_难度名.sb - 故事板文件
 ```
 
 ## Chart
 
-存储Note及歌曲信息的文件为 `chart.json`，格式如下：
+存储Note及歌曲信息的文件为 `难度名.sc`，
+
+### 文件头部：
+
 ```
-{
-	"version": 1.5,
-	"BPMP1": [
-		260, 520
-	],
-	"BPMP2": [
-		260, 520
-	],
-	"notesP1": [{
-			"type": "n",
-			"time": "920",
-			"BPM": "0",
-			"yPos": "-2"
-		},
-		{
-			"type": "t",
-			"time": "1840",
-			"BPM": "1",
-			"yPos": "0"
-		},
-		{
-			"type": "f",
-			"time": "2760",
-			"BPM": "1",
-			"yPos": "0"
-		},
-		{
-			"type": "fr",
-			"time": "3690",
-			"BPM": "1",
-			"yPos": "0",
-			"rs": "2"
-			"rd": "114"
-		}
-	],
-	"notesP2": [{
-		"type": "h",
-		"time": "930",
-		"Len": "1860",
-		"BPM": "0",
-		"yPos": "0"
-	}，
-	{
-		"type": "p", // task标记
-		"time": "930",
-		"eType": "h", // 被标记对象
-		"wTime": "1000" // task本体和被标记间间隔
-		"Len": "1860",
-		"BPM": "0",
-		"yPos": "0"
-	}，
-	{
-		"type": "l", //link
-		"time": "114514",
-		"endY": "1860", // 对面的目标Y
-		"eTime": "2000", // 结束时间
-		"BPM": "0",
-		"yPos": "0"
-	}]
-}
+-ChartStart-
+谱师名
+Level
+Difficulty
+MusicID
+-InfoEnd-
 ```
 
-新增Note属性 Perform 和 Effects
+### 各Note
 
-带Perform的Note打击时会有特效
+```
+ID#Type#Time#Position#Side
+```
 
-Effects则会有不一样的出现动画
+#### Type
+普通判定类：Normal, Touch, Flick
 
+特殊判定类：Hold, Link, Task(P), Rotate
+
+取Type名的首字母小写作为类型参数值
+
+#### Time
+
+整数，单位毫秒（ms）
+
+#### Position
+
+浮点数，标记具体位置（原参数posY）
+
+#### Side
+
+-1:左边玩家（1P)
+1:右边玩家（2P)
+
+#### 特殊判定类参数
+
+在普通Note后按顺序添加参数
+
+```
+ID#h#Time#Position#Side#Duration
+```
+
+```
+ID#l#Time#Position#Side#Duration#OppositePosition
+Duration: 飞到对面所需时间
+```
+
+```
+ID#p#Time#Position#Side#LinkedNote
+LinkedNote: 被联系起来的NoteID
+```
+
+```
+ID#r#Time#Position#Side#Duration#Target
+```
 ## 播放
 
 流速： BPM/60 （units/sec）
