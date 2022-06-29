@@ -30,11 +30,16 @@ Difficulty
 MusicID
 -InfoEnd-
 ```
+```
+-BPMIndexs-
+P1:114,514
+P2:1919,810
+```
 
 ### 各Note
 
 ```
-ID#Type#Time#Position#Side
+ID#Type#BPMIndex#Time#Position#Side
 ```
 
 #### Type
@@ -62,21 +67,21 @@ ID#Type#Time#Position#Side
 在普通Note后按顺序添加参数
 
 ```
-ID#h#Time#Position#Side#Duration
+ID#h#BPMIndex#Time#Position#Side#Duration
 ```
 
 ```
-ID#l#Time#Position#Side#Duration#OppositePosition
+ID#l#BPMIndex#Time#Position#Side#Duration#OppositePosition
 Duration: 飞到对面所需时间
 ```
 
 ```
-ID#p#Time#Position#Side#LinkedNote
+ID#p#BPMIndex#Time#Position#Side#LinkedNote
 LinkedNote: 被联系起来的NoteID
 ```
 
 ```
-ID#r#Time#Position#Side#Duration#Target
+ID#r#BPMIndex#Time#Position#Side#Duration#Target
 ```
 ## 播放
 
