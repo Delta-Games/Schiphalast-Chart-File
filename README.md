@@ -35,7 +35,7 @@ MusicID
 ```
 
 **BPM组标识**
-
+逻辑同上一个版本，这里是列表，下面Note中的BPM是对应的上面列表中的元素
 ```
 -BPMStart-
 P1:114,514
@@ -43,6 +43,12 @@ P2:1919,810
 -BPMEnd-
 ```
 
+**谱面开始标识**
+```
+-NotesStart-
+各Note
+-NotesEnd-
+```
 
 ### 各Note
 
@@ -53,7 +59,11 @@ ID#Type#BPMIndex#Time#Position#Side
 #### Type
 普通判定类：Normal, Touch, Flick
 
+(n,t,f)
+
 特殊判定类：Hold, Link, Task(P), Rotate
+
+(h,l,p,r)
 
 取Type名的首字母小写作为类型参数值
 
