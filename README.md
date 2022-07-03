@@ -20,21 +20,29 @@ A chart file for game Schiphalast.
 
 存储Note及歌曲信息的文件为 `难度名.sc`，
 
-### 文件头部：
+### 标识块：
 
+以下标识块必须存在
+
+**文件头部**
 ```
--ChartStart-
+-ChartInfoStart-
 谱师名
 Level
 Difficulty
 MusicID
--InfoEnd-
+-ChartInfoEnd-
 ```
+
+**BPM组标识**
+
 ```
--BPMIndexs-
+-BPMStart-
 P1:114,514
 P2:1919,810
+-BPMEnd-
 ```
+
 
 ### 各Note
 
